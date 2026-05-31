@@ -6,17 +6,39 @@
   <title>Samantha Hatfield | Data Analyst Portfolio</title>
 
   <style>
+
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+
+      --background: #f4f6f8;
+      --card-background: #ffffff;
+      --nav-background: #ffffff;
+
+      --text-primary: #111827;
+      --text-secondary: #4b5563;
+      --text-light: #d1d5db;
+      --text-white: #ffffff;
+
+      --tag-bg: #e0ecff;
+      --tag-text: #1d4ed8;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+    
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      color: #1f2937;
+      background: var(--background);
+      color: var(--text-primary);
       line-height: 1.6;
     }
 
     header {
-      background: #111827;
-      color: white;
+      background: var(--primary);
+      color: var(--text-white);
       padding: 60px 20px;
       text-align: center;
     }
@@ -28,11 +50,11 @@
 
     header p {
       font-size: 20px;
-      color: #d1d5db;
+      color: var(--text-light);
     }
 
     nav {
-      background: white;
+      background: var(--nav-background);
       padding: 15px;
       text-align: center;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -41,18 +63,43 @@
     nav a {
       margin: 0 15px;
       text-decoration: none;
-      color: #111827;
+      color: var(--text-primary);
       font-weight: bold;
+      transition: color .2s ease;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width .2s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    a:not(.button) {
+      color: var(--primary);
+    }
+
+    a:not(.button):hover {
+      color: var(--primary-dark);
     }
 
     section {
       max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
+      margin: 60px auto;
+      padding: 0 20px 20px 20px;
     }
 
     h2 {
-      border-bottom: 3px solid #2563eb;
+      border-bottom: 3px solid var(--tag-text);
       padding-bottom: 8px;
       margin-bottom: 20px;
     }
@@ -64,25 +111,31 @@
     }
 
     .card {
-      background: white;
+      background: var(--card-background);
       padding: 24px;
       border-radius: 12px;
+      border-top: 5px solid var(--tag-text);
       box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      transition: transform .2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
     }
 
     .card h3 {
       margin-top: 0;
-      color: #111827;
+      color: var(--text-primary);
     }
 
     .card p {
-      color: #4b5563;
+      color: var(--text-secondary);
     }
 
     .tag {
       display: inline-block;
-      background: #e0ecff;
-      color: #1d4ed8;
+      background: var(--tag-bg);
+      color: var(--tag-text);
       padding: 5px 10px;
       border-radius: 20px;
       font-size: 13px;
@@ -92,19 +145,24 @@
     .button {
       display: inline-block;
       margin-top: 12px;
-      padding: 10px 14px;
-      background: #2563eb;
-      color: white;
+      padding: 12px 18px;
+      background: var(--primary);
+      color: var(--text-white);
       text-decoration: none;
       border-radius: 8px;
       font-weight: bold;
+      transition: background .2s ease;
+    }
+
+    .button:hover {
+      background: var(--primary-dark);
     }
 
     footer {
       text-align: center;
       padding: 30px;
-      background: #111827;
-      color: white;
+      background: var(--primary);
+      color: var(--text-white);
       margin-top: 50px;
     }
   </style>
@@ -114,7 +172,7 @@
 
   <header>
     <h1>Samantha Hatfield</h1>
-    <p>Data Analyst | Power BI | SQL | Python | Predictive Analytics</p>
+    <p>Data Analyst | Business Intelligence | Power BI | SQL | Predictive Analytics</p>
   </header>
 
   <nav>
@@ -135,14 +193,20 @@
     
     <p>
     <strong>Education & Certifications</strong><br>
-    M.S. Data Analytics<br>
-    B.A. Mathematics
-  </p>
+    Master of Science in Data Analytics<br>
+    Bachelor of Arts in Mathematics
+      </p>
   </section>
 
   <section id="projects">
-    <h2>Portfolio Projects</h2>
-
+    <h2>Featured Analytics Projects</h2>
+    
+    <p>
+    A collection of business intelligence, predictive analytics,
+    and data visualization projects demonstrating real-world
+    problem solving using Power BI, SQL, Python, and statistical modeling.
+    </p>
+    
     <div class="project-grid">
 <!-- Heart Failure Project -->
       <div class="card">
@@ -155,7 +219,7 @@
         <span class="tag">Healthcare Analytics</span>
         <span class="tag">Predictive Modeling</span>
         <br>
-        <a class="button" href="https://github.com/SamanthaRHatfield/Heart-Failure-Prediction" target="_blank"> View Project</a>
+        <a class="button" href="https://github.com/SamanthaRHatfield/Heart-Failure-Prediction" target="_blank">View Project</a>
       </div>
 <!-- Salary Retention Project
       <div class="card">
@@ -198,11 +262,13 @@
 
   <section id="contact">
     <h2>Contact</h2>
-<p>
+    
+    <p>
     <strong>Email:</strong>
-    <a href="mailto:Samantha.Hatfield.com">
-      Samantha.Hatfield.com
+    <a href="mailto:Samantha.Hatfield@hotmail.com">
+      Samantha.Hatfield@hotmail.com
     </a>
+  </p>
 
   <p>
     <strong>LinkedIn:</strong>
